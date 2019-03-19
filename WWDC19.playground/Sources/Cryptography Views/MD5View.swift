@@ -1,13 +1,12 @@
 import UIKit
-import CommonCrypto
 
 class MD5View: CryptoView {
     
-    override init(message: String = "Hello!") {
+    init(message: String = "Hello!") {
         super.init(message: message)
     }
     
-    // After instantiating HomeView:
+    // After initializing HomeView:
     override func viewDidLoad() {
         
         let digest = CryptoSupport.MD5(string: message)

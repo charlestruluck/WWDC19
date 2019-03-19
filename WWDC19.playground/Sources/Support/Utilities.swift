@@ -41,6 +41,7 @@ class Utilities {
         label.font = UIFont(name: "SF Mono", size:  fontSize)
         label.textColor = color
         label.numberOfLines = 0
+        label.textAlignment = .center
         
         return label
     }
@@ -62,7 +63,8 @@ class Utilities {
         textField.inputView = UIView()
         
         // Set placeholder theme
-        textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: Color.green.withAlphaComponent(0.5), NSAttributedString.Key.font: UIFont(name: "SF Mono", size: 32)])
+        let sfMonoFamily = UIFont(name: "SF Mono", size: 32) as Any
+        textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: Color.green.withAlphaComponent(0.5), NSAttributedString.Key.font: sfMonoFamily])
         
         // Standardization and annoyance filters
         textField.autocapitalizationType = .none

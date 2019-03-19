@@ -20,19 +20,19 @@ import Foundation
 class CryptoSupport {
     
     // ROT13. The basic
-    class func rot13(string: String) -> String {
+    class func caesarCipher(string: String, key: Int) -> String {
         
-        var key = [Character: Character]()
+        var charKey = [Character: Character]()
         
         let uppercase = Array("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
         let lowercase = Array("abcdefghijklmnopqrstuvwxyz")
         
         for i in 0 ..< 26 {
-            key[uppercase[i]] = uppercase[(i + 13) % 26]
-            key[lowercase[i]] = lowercase[(i + 13) % 26]
+            charKey[uppercase[i]] = uppercase[(i + key) % 26]
+            charKey[lowercase[i]] = lowercase[(i + key) % 26]
         }
         
-        return String(string.map { key[$0] ?? $0 })
+        return String(string.map { charKey[$0] ?? $0 })
         
     }
     

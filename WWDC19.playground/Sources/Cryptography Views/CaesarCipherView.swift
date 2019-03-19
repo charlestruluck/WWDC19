@@ -2,15 +2,16 @@ import UIKit
 
 class CaesarCipherView: CryptoView {
     
-    override init(message: String = "Hello!") {
-        super.init(message: message)
+    init(message: String = "Caesar", withKey: Int = 1) {
+        super.init(message: message, key: withKey)
     }
     
-    // After instantiating HomeView:
+    // After initializing HomeView:
     override func viewDidLoad() {
         
-        let digest = CryptoSupport.rot13(string: message)
-        setup(title: " Caesar Cipher ", placeholder: " Pnrfne Pvcure ", digest: digest)
+        let digest = CryptoSupport.caesarCipher(string: message, key: key)
+        setup(title: " Caesar Cipher ", placeholder: " Pnrfne Pvcure ")
+        walkthrough(headerText: "Take this text:", headerDynamic: message, bodyTitle: "Move all by \(key):", bodyDynamic: "A + \(key) → \(CryptoSupport.caesarCipher(string: "A", key: key))", footerText: "The resulting digest:", footerDynamic: digest)
         
     }
     

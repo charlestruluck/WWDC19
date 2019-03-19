@@ -5,20 +5,24 @@ import PlaygroundSupport
 open class TimelineManager {
     
     let home: HomeView
+    let substitute: SubstitutionView
     let caesarCipher: CaesarCipherView
     let md5: MD5View
     let sha1: SHA1View
     
-    public init(learnAbout: Informational, message: String = "") {
+    public init(learnAbout: Informational, message: String = "", key: Int = 1) {
         
         home = HomeView()
-        caesarCipher = CaesarCipherView(message: message)
+        substitute = SubstitutionView()
+        caesarCipher = CaesarCipherView(message: message, withKey: key)
         md5 = MD5View(message: message)
         sha1 = SHA1View(message: message)
         
         switch learnAbout {
         case .home:
             PlaygroundPage.current.liveView = home
+        case .substitute:
+            PlaygroundPage.current.liveView = substitute
         case .caesarCipher:
             PlaygroundPage.current.liveView = caesarCipher
         case .md5:
@@ -32,6 +36,7 @@ open class TimelineManager {
 
 public enum Informational {
     case home
+    case substitute
     case caesarCipher
     case md5
     case sha1
