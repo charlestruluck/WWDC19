@@ -10,3 +10,5 @@ Here are some of the sources I used when researching cryptography
 ["Common Cryptographic Algorithm Interfaces."  Apple Developer Library. Written 22 March 2007. Accessed 19 March 2019.](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man3/CCCryptor.3cc.html#//apple_ref/doc/man/3cc/CCCryptor.)
 
 ["How exactly is MD5 vulnerable to collission attacks?" Oleksi. Stack Exchange, Information Security. Written 12 July 2013. Accessed 20 March 2019.](https://security.stackexchange.com/questions/38801/how-exactly-is-md5-vulnerable-to-collission-attacks)
+
+["macOS Sierra 10.12 [release notes]". Updated 19 September 2017. Accessed 20 March 2019. ](https://developer.apple.com/library/archive/releasenotes/MacOSX/WhatsNewInOSX/Articles/OSXv10.html)
