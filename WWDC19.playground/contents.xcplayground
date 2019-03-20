@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<playground version='6.0' target-platform='ios' display-mode='rendered'>
+<playground version='6.0' target-platform='ios' display-mode='raw' executeOnSourceChanges='false'>
     <pages>
         <page name='Introduction'/>
         <page name='Simple Ciphers'/>
         <page name='Caesar Cipher'/>
+        <page name='Hashes using MD5'/>
+        <page name='Hashes using SHA1'/>
+        <page name='Modern Data Protection'/>
+        <page name='Modern Private-Key'/>
     </pages>
 </playground>

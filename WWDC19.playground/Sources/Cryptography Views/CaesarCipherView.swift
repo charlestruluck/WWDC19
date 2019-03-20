@@ -3,7 +3,7 @@ import UIKit
 class CaesarCipherView: CryptoView {
     
     init(message: String = "Caesar", withKey: Int = 1) {
-        super.init(message: message, key: withKey)
+        super.init(message: message, withKey: withKey)
     }
     
     // After initializing HomeView:

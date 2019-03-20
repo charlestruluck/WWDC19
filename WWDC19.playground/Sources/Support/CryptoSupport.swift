@@ -24,12 +24,17 @@ class CryptoSupport {
         
         var charKey = [Character: Character]()
         
+        // Character map for reference
         let uppercase = Array("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
         let lowercase = Array("abcdefghijklmnopqrstuvwxyz")
         
+        // For each rotation
         for i in 0 ..< 26 {
+            
+            // Rotate using map depending on upper or lower.
             charKey[uppercase[i]] = uppercase[(i + key) % 26]
             charKey[lowercase[i]] = lowercase[(i + key) % 26]
+            
         }
         
         return String(string.map { charKey[$0] ?? $0 })
@@ -94,5 +99,96 @@ class CryptoSupport {
         
         return sha256Hex
     }
+    
+    class func xor(message: String, withKey: String, method: Method) -> String {
+        
+        let key = withKey.map { $0 } //Can be any chars, and any length array
+        let length = key.count
+        var output = ""
+        
+        for i in message.enumerated() {
+            let byte = [i.element.utf8() ^ key[i.offset % length].utf8()]
+            output.append(String(bytes: byte, encoding: .utf8)!)
+            //output.append(String(bytes: byte, encoding: .utf8)!)
+        }
+        
+        return output.map { String($0) }.joined()
+        
+        
+        //let key = withKey.utf8
+//        var messageData = [UInt8]()
+//        var digestData = [UInt8]()
+        
+        //print(method)
+//        if method == Method.decrypt {
+//            let messageDataStringArray = message.enumerated().map { $0 > 0 && $0 % 2 == 0 ? [$1] : [$1]}
+//            print("run")
+//            print("l:", messageDataStringArray[0])
+//            
+//            //let messageDataString = messageDataStringArray.
+//            messageData = UInt8(message, radix: 16) {
+//                print(value)
+//                digestData.append(newElement: messageData.enumerated().map({
+//                    $0.element ^ key[key.index(key.startIndex, offsetBy: $0.offset % key.count)]
+//                }))
+//            }
+//        }
+        
+//        let bytes = message.utf8.enumerated().map({(arg0) -> UInt8 in
+//            if let idx = key.index(key.startIndex, offsetBy: arg0.offset, limitedBy: key.endIndex) {
+//                return arg0.element ^ key[idx]
+//            }
+//            return arg0.element // or whatever
+        
+        //let bytes = message.utf8.map({
+           // $1 ^ key[key.startIndex.advancedBy($0 % key.count)]
+      //  })
+        //return "helo"/*bytes.map { String($0) }.joined()*/
+    }
+    
+//    class func desEncrypt(message: String, withKey: String) -> String {
+//
+//        let key = withKey.data(using: .utf8)
+//        let data = message.data(using: .utf8)
+//
+//        var numBytesEncrypted: size_t = 0
+//        var result = Data(count: data!.count)
+//
+//        print(data!)
+//        print(data!.count)
+//
+//        _ = result.withUnsafeMutableBytes { resultBytes in
+//            data!.withUnsafeBytes { dataBytes in
+//                key!.withUnsafeBytes { keyBytes in
+//                    CCCrypt(CCOperation(kCCEncrypt), CCAlgorithm(kCCAlgorithmDES), CCOptions(/*kCCOptionPKCS7Padding|kCCOptionECBMode*/), keyBytes, kCCKeySizeDES, nil, dataBytes, data!.count, resultBytes, data!.count, &numBytesEncrypted)
+//                }
+//            }
+//        }
+//
+//        print(String(bytes: result, encoding: .utf8))
+//
+//        return String(data: result, encoding: .utf8) ?? "Sorry, error."
+//
+//    }
+    
+//    let encrypted = "inMyOriginalCodeYouWouldSeeADESEncryptedStringHere/ahw=="
+//    if let key = "12345678".data(using: .utf8), let data = Data(base64Encoded: encrypted) {
+//        var numBytesDecrypted: size_t = 0
+//        var result = Data(count: data.count)
+//
+//        let err = result.withUnsafeMutableBytes {resultBytes in
+//            data.withUnsafeBytes {dataBytes in
+//                key.withUnsafeBytes {keyBytes in
+//                    CCCrypt(CCOperation(kCCDecrypt), CCAlgorithm(kCCAlgorithmDES), CCOptions(kCCOptionECBMode), keyBytes, kCCKeySizeDES, nil, dataBytes, data.count, resultBytes, data.count, &numBytesDecrypted)
+//                }
+//            }
+//        }
+//
+//        if err != CCCryptorStatus(kCCSuccess) {
+//            NSLog("Decryption failed! Error: \(err.description)")
+//        }
+//
+//        return String(data: result, encoding: .utf8) ?? "???"
+//    }
     
 }

@@ -3,12 +3,14 @@ import UIKit
 class CryptoView: UIView {
     
     let message: String
-    var key: Int
+    let key: Int
+    let complexKey: String
     
-    init(message: String = "", key: Int = 1) {
+    init(message: String = "", withKey: Int = 1, withComplexKey: String = "complex") {
         
         self.message = message
-        self.key = key
+        self.key = withKey
+        self.complexKey = withComplexKey
         
         // Satisfy UIView initializers
         super.init(frame: CGRect(x: 0, y: 0, width: 400, height: 600))

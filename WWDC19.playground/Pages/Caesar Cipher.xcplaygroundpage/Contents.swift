@@ -12,18 +12,12 @@
  - ```message``` - The text you want to run through the cipher.
  - ```key``` - How many characters you want to rotate the message by.
  */
-var message = "Ashley Truluck"
-var key = 12
+let message = "Ashley Truluck"
+let key = 12
 /*:
- ## Substitution Ciphers
- The name comes from the idea of using a "key" to change a message that is not intended for anyone without the key; however, these are still solveable and not secure.
- If you look at the demonstration to the right, it should be clear that ciphers work on the character-level, meaning they affect text at the character level.
- Our string, which starts out as "WWDC", runs through the key we've formulated. We are converting "W" to "X", "D" to "J", and "C" to "M"
- You should be able to see why this is easily reverseable now, but the understanding of a "key" will make it easier to understand how more complex cryptographic methods work.
+ ## Grasping a Better Understanding
  
  ## Takeaways
- You should understand that simple ciphers are reverseable and affect each individual character from the input message.
- You should also understand that this cipher works around a "key". If you know the key, you can use it to encode and decode a message.
 
 //: [Next](@next)
 */

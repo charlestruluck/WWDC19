@@ -9,14 +9,18 @@ open class TimelineManager {
     let caesarCipher: CaesarCipherView
     let md5: MD5View
     let sha1: SHA1View
+    let sha256: SHA256View
+    let xor: XORView
     
-    public init(learnAbout: Informational, message: String = "", key: Int = 1) {
+    public init(learnAbout: Informational, message: String = "", key: Int = 1, complexKey: String = "complex", type: Method = .encrypt) {
         
         home = HomeView()
         substitute = SubstitutionView()
         caesarCipher = CaesarCipherView(message: message, withKey: key)
         md5 = MD5View(message: message)
         sha1 = SHA1View(message: message)
+        sha256 = SHA256View(message: message)
+        xor = XORView(message: message, withComplexKey: complexKey, function: type)
         
         switch learnAbout {
         case .home:
@@ -29,6 +33,10 @@ open class TimelineManager {
             PlaygroundPage.current.liveView = md5
         case .sha1:
             PlaygroundPage.current.liveView = sha1
+        case .sha256:
+            PlaygroundPage.current.liveView = sha256
+        case .xor:
+            PlaygroundPage.current.liveView = xor
         }
     }
     
@@ -40,4 +48,11 @@ public enum Informational {
     case caesarCipher
     case md5
     case sha1
+    case sha256
+    case xor
+}
+
+public enum Method {
+    case encrypt
+    case decrypt
 }
