@@ -15,7 +15,6 @@ class XORView: CryptoView {
         
         setup(title: " XOR ", placeholder: " KBE ")
         walkthrough(headerText: "Take this text:", headerDynamic: message, bodyTitle: "XOR with key:", bodyDynamic: complexKey, footerText: "The resulting digest:", footerDynamic: digest)
-        print(digest)
         
     }
     

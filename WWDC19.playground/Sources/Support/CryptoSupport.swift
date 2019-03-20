@@ -23,17 +23,22 @@ class CryptoSupport {
     class func caesarCipher(string: String, key: Int) -> String {
         
         var charKey = [Character: Character]()
+        var fineKey = key
         
         // Character map for reference
         let uppercase = Array("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
         let lowercase = Array("abcdefghijklmnopqrstuvwxyz")
         
+        if key < 0 {
+            fineKey = ((key % 26) + 26)
+        }
+        
         // For each rotation
         for i in 0 ..< 26 {
             
             // Rotate using map depending on upper or lower.
-            charKey[uppercase[i]] = uppercase[(i + key) % 26]
-            charKey[lowercase[i]] = lowercase[(i + key) % 26]
+            charKey[uppercase[i]] = uppercase[(i + fineKey) % 26]
+            charKey[lowercase[i]] = lowercase[(i + fineKey) % 26]
             
         }
         
