@@ -1,12 +1,12 @@
-var function: Method = .encrypt
 var message = ""
 var key = ""
 /*:
  [Previous](@previous)
  
- # What is a Hash?
+ # What is a symmetric key algorithm?
  
- ## MD5: An example hash.
+ ## XOR Cipher
+ The
  
  ## Demo
  You can try out MD5 for yourself by modifying the two variables below. Try different messages– you will find that they always come out to be 32 characters in size, and one message always has the same hash, while changing one thing creates an entirely different hash.
@@ -16,7 +16,6 @@ var key = ""
 
 message = "XT^_["
 key = "012345"
-function = .encrypt
 
 /*:
  ## Grasping a Better Understanding
@@ -28,4 +27,4 @@ function = .encrypt
  [Next](@next)
  */
 
-TimelineManager(learnAbout: .xor, message: message, complexKey: key, type: function)
+TimelineManager(learnAbout: .xor, message: message, complexKey: key)
