@@ -13,7 +13,7 @@ class XORView: CryptoView {
         
         let digest: String = CryptoSupport.xor(message: message, withKey: complexKey, method: doFunction)
         
-        setup(title: " XOR ", placeholder: " KBE ")
+        setup(title: "XOR", placeholder: "KBE")
         walkthrough(headerText: "Take this text:", headerDynamic: message, bodyTitle: "XOR with key:", bodyDynamic: complexKey, footerText: "The resulting digest:", footerDynamic: digest)
         
     }

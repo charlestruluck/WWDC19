@@ -10,10 +10,10 @@ class SHA256View: CryptoView {
     override func viewDidLoad() {
         
         let digest = CryptoSupport.SHA256(string: message)
-        setup(title: " SHA256 ", placeholder: " FUN256 ")
+        setup(title: "SHA256", placeholder: "FUN256")
         // Fun note: SHA through ROT13 = FUN. Who could've guessed!
         
-        walkthrough(headerText: "Take this text:", headerDynamic: message, bodyTitle: "Run it through SHA256.", bodyDynamic: "IETF RFC 6234's standardized SHA256 function", footerText: "The resulting digest:", footerDynamic: digest)
+        walkthrough(headerText: "Take this text:", headerDynamic: message, bodyTitle: "Run it through SHA256.", bodyDynamic: "IETF RFC 6234's SHA256 function", footerText: "The resulting digest:", footerDynamic: digest)
         
     }
     

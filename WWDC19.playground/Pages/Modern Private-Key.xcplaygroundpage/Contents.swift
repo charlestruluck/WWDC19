@@ -4,25 +4,21 @@ var key = ""
  [Previous](@previous)
  
  # What is a symmetric key algorithm?
+ A symmetric key algorithm is generally used for two-way data protection. If you want to send your friend a message that can only be read by you and your friend, you would use a symmetric key algorithm. You and your friend would both need the key, you would use it to encrypt the message, and your friend would use it to decrypt the message.
  
  ## XOR Cipher
- The
+ The XOR Cipher uses the XOR bitwise function to encrypt the data to the point where a key is the only way to decrypt it. While brute-forcing is an option, it could take an exponential amount of time in relation to the key length to decrypt the message.
  
  ## Demo
- You can try out MD5 for yourself by modifying the two variables below. Try different messages– you will find that they always come out to be 32 characters in size, and one message always has the same hash, while changing one thing creates an entirely different hash.
+ You can try out the XOR cipher for yourself by modifying the two variables below. Try different messages– XOR digest lengths vary in size depending on the input.
  - ```message``` - The text you want to run through the cipher.
- - ```key``` - How many characters you want to rotate the message by.
+ - ```key``` - A string to encrypt with. Can be letters and numbers.
  */
 
-message = "XT^_["
+message = "Hello"
 key = "012345"
 
 /*:
- ## Grasping a Better Understanding
- 
- ## Collisions: Why is MD5 Vulnerable?
- 
- ## Takeaways
  
  [Next](@next)
  */

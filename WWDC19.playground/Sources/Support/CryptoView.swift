@@ -1,4 +1,5 @@
 import UIKit
+import PlaygroundSupport
 
 class CryptoView: UIView {
     
@@ -13,7 +14,7 @@ class CryptoView: UIView {
         self.complexKey = withComplexKey
         
         // Satisfy UIView initializers
-        super.init(frame: CGRect(x: 0, y: 0, width: 400, height: 600))
+        super.init(frame: CGRect(x: 0, y: 0, width: 410, height: 600))
         backgroundColor = Color.civic
         
         // Run the standard viewDidLoad, user can override.
@@ -32,7 +33,7 @@ class CryptoView: UIView {
         
         if title != "" {
             // Use the handy-dandy label creator and format it.
-            let titleLabel = Utilities.createLabel(text: placeholder, fontSize: 32, frame: CGRect(x: 0, y: 0, width: 400, height: 80))
+            let titleLabel = Utilities.createLabel(text: placeholder, fontSize: 36, frame: CGRect(x: 0, y: 0, width: 400, height: 80), weight: .heavy)
             
             // Do the formats
             titleLabel.textAlignment = .center
@@ -77,15 +78,38 @@ class CryptoView: UIView {
     }
     
     // I wish I had time to make this code more efficient.
-    func walkthrough(headerText: String, headerDynamic: String, bodyTitle: String, bodyDynamic: String, footerText: String, footerDynamic: String) {
+    func walkthrough(headerText: String, headerDynamic: String, bodyTitle: String, bodyDynamic: String, footerText: String, footerDynamic: String, dynamicTextSize: CGFloat = 30, longGuideline: Bool = false) {
+        
+//        var modifiedHeaderDynamic = ""
+//        if headerDynamic.count > 38 {
+//            modifiedHeaderDynamic = String(headerDynamic.dropLast(headerDynamic.count - 38))
+//            // I would love to be able to send a message to the PlaygroundPage.
+//        } else {
+//            modifiedHeaderDynamic = headerDynamic
+//        }
         
         // Instantiate all of the labels.
-        let subTitleOne = Utilities.createLabel(text: headerText, fontSize: 26, frame: CGRect(x: 0, y: 120, width: self.frame.width, height: 30), color: Color.green)
-        let textOne = Utilities.createLabel(text: headerDynamic, fontSize: 36, frame: CGRect(x: 0, y: 150, width: self.frame.width, height: 50), color: Color.red)
-        let subTitleTwo = Utilities.createLabel(text: bodyTitle, fontSize: 26, frame: CGRect(x: 0, y: 220, width: self.frame.width, height: 30), color: Color.green)
-        let guidelines = Utilities.createLabel(text: bodyDynamic, fontSize: 36, frame: CGRect(x: 0, y: 250, width: self.frame.width, height: 130), color: Color.red)
-        let subTitleThree = Utilities.createLabel(text: footerText, fontSize: 26, frame: CGRect(x: 0, y: 405, width: self.frame.width, height: 30), color: Color.green)
-        let textTwo = Utilities.createLabel(text: footerDynamic, fontSize: 36, frame: CGRect(x: 0, y: 440, width: self.frame.width, height: 50), color: Color.red)
+        let subTitleOne = Utilities.createLabel(text: headerText, fontSize: 26, frame: CGRect(x: 0, y: 120, width: self.frame.width, height: 30), color: Color.green, weight: .heavy)
+        let textOne = Utilities.createLabel(text: headerDynamic, fontSize: dynamicTextSize, frame: CGRect(x: 0, y: 150, width: self.frame.width, height: 50), color: Color.red)
+        var subTitleTwo = UILabel()
+        var guidelines = UILabel()
+        var subTitleThree = UILabel()
+        var textTwo = UILabel()
+        
+        if longGuideline {
+            subTitleTwo = Utilities.createLabel(text: bodyTitle, fontSize: 26, frame: CGRect(x: 0, y: 220, width: self.frame.width, height: 30), color: Color.green, weight: .heavy)
+            guidelines = Utilities.createLabel(text: bodyDynamic, fontSize: dynamicTextSize, frame: CGRect(x: 0, y: 250, width: self.frame.width, height: 130), color: Color.red)
+            subTitleThree = Utilities.createLabel(text: footerText, fontSize: 26, frame: CGRect(x: 0, y: 405, width: self.frame.width, height: 30), color: Color.green, weight: .heavy)
+            textTwo = Utilities.createLabel(text: footerDynamic, fontSize: dynamicTextSize, frame: CGRect(x: 0, y: 440, width: self.frame.width, height: 50), color: Color.red)
+        } else {
+            subTitleTwo = Utilities.createLabel(text: bodyTitle, fontSize: 26, frame: CGRect(x: 0, y: 250, width: self.frame.width, height: 30), color: Color.green, weight: .heavy)
+            guidelines = Utilities.createLabel(text: bodyDynamic, fontSize: dynamicTextSize, frame: CGRect(x: 0, y: 280, width: self.frame.width, height: 50), color: Color.red)
+            subTitleThree = Utilities.createLabel(text: footerText, fontSize: 26, frame: CGRect(x: 0, y: 370, width: self.frame.width, height: 30), color: Color.green, weight: .heavy)
+            textTwo = Utilities.createLabel(text: footerDynamic, fontSize: dynamicTextSize, frame: CGRect(x: 0, y: 400, width: self.frame.width, height: 50), color: Color.red)
+        }
+        
+        textOne.numberOfLines = 2
+        textTwo.numberOfLines = 5
         
         // Nasty. (set bounds)
         subTitleOne.sizeToFit()

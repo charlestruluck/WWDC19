@@ -11,6 +11,7 @@ open class TimelineManager {
     let sha1: SHA1View
     let sha256: SHA256View
     let xor: XORView
+    let closure: ClosureView
     
     public init(learnAbout: Informational, message: String = "", key: Int = 1, complexKey: String = "complex", type: Method = .encrypt) {
         
@@ -21,6 +22,7 @@ open class TimelineManager {
         sha1 = SHA1View(message: message)
         sha256 = SHA256View(message: message)
         xor = XORView(message: message, withComplexKey: complexKey, function: type)
+        closure = ClosureView()
         
         switch learnAbout {
         case .home:
@@ -37,6 +39,8 @@ open class TimelineManager {
             PlaygroundPage.current.liveView = sha256
         case .xor:
             PlaygroundPage.current.liveView = xor
+        case .closure:
+            PlaygroundPage.current.liveView = closure
         }
     }
     
@@ -50,6 +54,7 @@ public enum Informational {
     case sha1
     case sha256
     case xor
+    case closure
 }
 
 public enum Method {
