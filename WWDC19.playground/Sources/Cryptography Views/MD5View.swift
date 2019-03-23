@@ -2,18 +2,19 @@ import UIKit
 
 class MD5View: CryptoView {
     
+    // Initialize MD5View
     init(message: String = "Hello!") {
         super.init(message: message)
     }
     
-    // After initializing HomeView:
+    // After initializing MD5View:
     override func viewDidLoad() {
         
-        // Add this later: https://www.ietf.org/rfc/rfc1321.txt
-        
+        // set the digest
         let digest = CryptoSupport.MD5(string: message)
         setup(title: "MD5", placeholder: "ZQ5")
         
+        // Set the labels
         walkthrough(headerText: "Take this text:", headerDynamic: message, bodyTitle: "Run it through MD5.", bodyDynamic: "IETF RFC 1321's MD5 function", footerText: "The resulting digest:", footerDynamic: digest)
     }
     

@@ -25,7 +25,7 @@
  - ```key``` - How many characters you want to rotate the message by.
  */
 
-let message = "This is supposed to be a really long bananas are really good wow."
+let message = "Caesar Cipher"
 let key = 5
 
 // Try encrypting "Hello" with a key of 5.

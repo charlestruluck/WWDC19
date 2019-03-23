@@ -12,7 +12,10 @@ class ClosureView: CryptoView {
         
     }
     
+    // Set up the spinning globe.
     func setupSceneKit() {
+        
+        // SceneKit setup.
         let scene = Scene(frame: self.frame)
         scene.cameraNode.camera = scene.camera
         scene.setupCameraPosition(x: 0.0, y: 1.5, z: 5.0)

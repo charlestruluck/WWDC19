@@ -50,7 +50,7 @@ class Utilities {
         textField.inputView = UIView()
         
         // Set placeholder theme
-        textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: Color.green.withAlphaComponent(0.5), NSAttributedString.Key.font: UIFont(name: "SF Mono", size: 32)])
+        textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: Color.green.withAlphaComponent(0.5), NSAttributedString.Key.font: UIFont(name: "SF Mono", size: 32) as Any])
         
         // Standardization and annoyance filters
         textField.autocapitalizationType = .none

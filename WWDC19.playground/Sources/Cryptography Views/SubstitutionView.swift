@@ -2,6 +2,7 @@ import UIKit
 
 class SubstitutionView: CryptoView {
     
+    // Initialize SubstitutionView
     init(message: String = "") {
         super.init(message: message)
     }

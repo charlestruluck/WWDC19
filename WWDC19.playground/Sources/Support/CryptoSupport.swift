@@ -107,7 +107,7 @@ class CryptoSupport {
     }
     
     // Use bitwise function XOR to encrypt the message's bytes.
-    class func xor(message: String, withKey: String, method: Method) -> String {
+    class func xor(message: String, withKey: String) -> String {
         
         // Convert key into an array, let length to the key length, instanciate output variable.
         let key = withKey.map { $0 }

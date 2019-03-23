@@ -4,6 +4,7 @@ import PlaygroundSupport
 // I know this is a dirty way of doing things, but cut me a break. It works. It is effective.
 open class TimelineManager {
     
+    // Define placeholders
     let home: HomeView
     let substitute: SubstitutionView
     let caesarCipher: CaesarCipherView
@@ -13,7 +14,8 @@ open class TimelineManager {
     let xor: XORView
     let closure: ClosureView
     
-    public init(learnAbout: Informational, message: String = "", key: Int = 1, complexKey: String = "complex", type: Method = .encrypt) {
+    // Initializer. Pass information to the currently visible view.
+    public init(learnAbout: Informational, message: String = "", key: Int = 1, complexKey: String = "complex") {
         
         home = HomeView()
         substitute = SubstitutionView()
@@ -21,9 +23,10 @@ open class TimelineManager {
         md5 = MD5View(message: message)
         sha1 = SHA1View(message: message)
         sha256 = SHA256View(message: message)
-        xor = XORView(message: message, withComplexKey: complexKey, function: type)
+        xor = XORView(message: message, withComplexKey: complexKey)
         closure = ClosureView()
         
+        // Set the live view to the chosen view.
         switch learnAbout {
         case .home:
             PlaygroundPage.current.liveView = home
@@ -42,10 +45,12 @@ open class TimelineManager {
         case .closure:
             PlaygroundPage.current.liveView = closure
         }
+        
     }
     
 }
 
+// Enum for which view is being shown. I decided to do it this way because it's more user-friendly.
 public enum Informational {
     case home
     case substitute
@@ -55,9 +60,4 @@ public enum Informational {
     case sha256
     case xor
     case closure
-}
-
-public enum Method {
-    case encrypt
-    case decrypt
 }

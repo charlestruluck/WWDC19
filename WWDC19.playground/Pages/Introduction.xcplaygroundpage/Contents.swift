@@ -6,11 +6,14 @@
  - Ciphers
  - One-way hashes
  - Symmetric key, or private key cryptography
+ 
+ # Make sure you enable the Live View
+ By choosing "Show the Assistant Editor at the top of Xcode (looks like two circles) and choosing "Live View" (two circles) instead of the "Manual" (book)
  */
+
 
 //: [Next](@next)
 
 
 
 TimelineManager(learnAbout: .home, message: "Hello!")
-

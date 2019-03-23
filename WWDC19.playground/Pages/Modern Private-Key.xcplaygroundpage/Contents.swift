@@ -15,7 +15,7 @@ var key = ""
  - ```key``` - A string to encrypt with. Can be letters and numbers.
  */
 
-message = "Hello"
+message = "xT^_["
 key = "012345"
 
 /*:
